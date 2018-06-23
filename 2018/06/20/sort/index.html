@@ -123,17 +123,19 @@
 
 
 
-<meta name="description" content="选择排序 从未排序的序列中找最小元素，与该序列的第一个元素交换位置，标记该元素为已排序并继续处理其他元素 时间复杂度 O(n2)  空间复杂度 O(1)">
+<meta name="description" content="整理常用的排序算法，掌握其原理与实现。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="排序">
 <meta property="og:url" content="http://yoursite.com/2018/06/20/sort/index.html">
 <meta property="og:site_name" content="jzyff&#39;s blog">
-<meta property="og:description" content="选择排序 从未排序的序列中找最小元素，与该序列的第一个元素交换位置，标记该元素为已排序并继续处理其他元素 时间复杂度 O(n2)  空间复杂度 O(1)">
+<meta property="og:description" content="整理常用的排序算法，掌握其原理与实现。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-20T12:42:41.943Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/20/sort/sort.jpg">
+<meta property="og:updated_time" content="2018-06-23T15:30:27.817Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="排序">
-<meta name="twitter:description" content="选择排序 从未排序的序列中找最小元素，与该序列的第一个元素交换位置，标记该元素为已排序并继续处理其他元素 时间复杂度 O(n2)  空间复杂度 O(1)">
+<meta name="twitter:description" content="整理常用的排序算法，掌握其原理与实现。">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/20/sort/sort.jpg">
 
 
 
@@ -325,13 +327,25 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-20T20:42:41+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-20T23:30:53+08:00">
                 2018-06-20
               </time>
             
 
             
+              <span class="post-meta-divider">|</span>
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-06-23T23:30:27+08:00">
+                2018-06-23
+              </time>
             
           </span>
 
@@ -374,20 +388,34 @@
       
 
       
-        <h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><ul>
-<li>从未排序的序列中找最小元素，与该序列的第一个元素交换位置，标记该元素为已排序并继续处理其他元素</li>
-<li>时间复杂度 O(n2)  空间复杂度 O(1)</li>
-</ul>
+        <blockquote>
+<p>整理常用的排序算法，掌握其原理与实现。</p>
+</blockquote>
 <a id="more"></a>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findMinElem</span><span class="params">(array, left, right)</span>:</span></span><br><span class="line">    minElem = <span class="number">100000</span></span><br><span class="line">    minIndex = <span class="number">-1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(left, right):</span><br><span class="line">        <span class="keyword">if</span> array[i] &lt; minElem:</span><br><span class="line">            minElem = array[i]</span><br><span class="line">            minIndex = i</span><br><span class="line">    <span class="keyword">return</span> minIndex</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">swapElem</span><span class="params">(array, index1, index2)</span>:</span></span><br><span class="line">    temp = array[index1]</span><br><span class="line">    array[index1] = array[index2]</span><br><span class="line">    array[index2] = temp</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">selectSort</span><span class="params">(array)</span>:</span></span><br><span class="line">    tempArray = copy.deepcopy(array)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(tempArray)):</span><br><span class="line">        index = findMinElem(tempArray, i, len(tempArray))</span><br><span class="line">        swapElem(tempArray, index, i)</span><br><span class="line">    <span class="keyword">return</span> tempArray</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/06/20/sort/sort.jpg" alt=""></p>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><ul>
+<li>过程：依次比较相邻两个元素，如果顺序错误则交换顺序，直到没有元素需要交换</li>
+<li>时间复杂度O(n²)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubbleSort</span><span class="params">(array)</span>:</span></span><br><span class="line">    tempArray = copy.deepcopy(array)</span><br><span class="line">    arrayLen = len(tempArray)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(arrayLen<span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(arrayLen<span class="number">-1</span>-j):</span><br><span class="line">            <span class="keyword">if</span>(tempArray[i] &gt; tempArray[i+<span class="number">1</span>]):</span><br><span class="line">                swapElem(tempArray, i, i+<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> tempArray</span><br></pre></td></tr></table></figure>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><ul>
+<li>过程<ul>
+<li>从未排序的序列中找最小元素</li>
+<li>与该序列的第一个元素交换位置</li>
+<li>将该元素加入已排序序列，并转第一步继续处理其他元素</li>
+</ul>
+</li>
+<li>时间复杂度 O(n²)  空间复杂度 O(1)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">selectSort</span><span class="params">(array)</span>:</span></span><br><span class="line">    tempArray = copy.deepcopy(array)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(tempArray)):</span><br><span class="line">        index = findMinElem(tempArray, i, len(tempArray))</span><br><span class="line">        swapElem(tempArray, index, i)</span><br><span class="line">    <span class="keyword">return</span> tempArray</span><br></pre></td></tr></table></figure>
 <h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><ul>
-<li>将每个未排序序列中的元素，插入到已排序序列中的适当位置</li>
-<li>时间复杂度 O(n2)  空间复杂度 O(1)</li>
+<li>过程：将每个未排序序列中的元素，插入到已排序序列中的适当位置</li>
+<li>时间复杂度 O(n²)  空间复杂度 O(1)</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insertElem</span><span class="params">(array, temp, index)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">-1</span>, index)[::<span class="number">-1</span>]:</span><br><span class="line">        <span class="keyword">if</span> j &lt; <span class="number">0</span> <span class="keyword">or</span> temp &gt; array[j] :</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        array[j + <span class="number">1</span>] = array[j]</span><br><span class="line">    array[j + <span class="number">1</span>] = temp</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insertSort</span><span class="params">(array)</span>:</span></span><br><span class="line">    tempArray = copy.deepcopy(array)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(tempArray)):</span><br><span class="line">        insertElem(tempArray, tempArray[i], i)</span><br><span class="line">    <span class="keyword">return</span> tempArray</span><br></pre></td></tr></table></figure>
 <h2 id="希尔排序（缩小增量排序）"><a href="#希尔排序（缩小增量排序）" class="headerlink" title="希尔排序（缩小增量排序）"></a>希尔排序（缩小增量排序）</h2><ul>
 <li>按下标的一定增量分组，对每组使用直接插入排序算法排序； 直到增量为1时终止</li>
-<li>相比于插入排序，移动操作的次数减少，性能打破O(n2)</li>
+<li>相比于插入排序，移动操作的次数减少，性能打破O(n²)</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">shellSort</span><span class="params">(array)</span>:</span></span><br><span class="line">    tempArray = copy.deepcopy(array)</span><br><span class="line">    gap = int(len(tempArray) / <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">while</span> gap &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(gap, len(tempArray)):</span><br><span class="line">            j = i</span><br><span class="line">            <span class="keyword">while</span> j-gap &gt;= <span class="number">0</span> <span class="keyword">and</span> tempArray[j] &lt; tempArray[j-gap]:</span><br><span class="line">                swapElem(tempArray,j,j-gap)</span><br><span class="line">                j = j - gap</span><br><span class="line">        gap = int(gap / <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> tempArray</span><br></pre></td></tr></table></figure>
 
@@ -414,15 +442,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/06/20/tool/" rel="next" title="工具">
+                <i class="fa fa-chevron-left"></i> 工具
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/20/tool/" rel="prev" title="工具">
-                工具 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -540,7 +568,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序"><span class="nav-number">1.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序"><span class="nav-number">2.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#希尔排序（缩小增量排序）"><span class="nav-number">3.</span> <span class="nav-text">希尔排序（缩小增量排序）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#冒泡排序"><span class="nav-number">1.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序"><span class="nav-number">2.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序"><span class="nav-number">3.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#希尔排序（缩小增量排序）"><span class="nav-number">4.</span> <span class="nav-text">希尔排序（缩小增量排序）</span></a></li></ol></div>
             
 
           </div>
